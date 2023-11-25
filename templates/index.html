@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Hola Mundo</p>
+    <form action="/gif" method="POST">
+      <label for="">Search</label>
+      <input type="text" name="q" id="q" />
+      <input type="submit" value="Search" />
+    </form>
+    {% if gifs %}
+    <h2>Results for "gifs"</h2>
+
+    <ul>
+      {% for gifs in gifs %}
+      <li>
+        <div class="gif-info">
+          <h2>{{ gifs.title }}</h2>
+          <img src="{{gifs.images.original.url}}" alt="Gif" />
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </body>
+</html>
